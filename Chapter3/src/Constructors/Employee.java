@@ -8,6 +8,10 @@ public class Employee {
         empSalary = 10.00;
     }
 
+    /**
+     * Initializes the employee salary
+     * @param salary the salary specified
+     */
     public Employee(double salary) {
         empSalary = salary;
     }
