@@ -1,0 +1,7 @@
+apple
+banana
+cherry
+grapes
+lemon
+orange
+tomato
