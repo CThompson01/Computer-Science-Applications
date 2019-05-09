@@ -1,31 +1,29 @@
 package Animals;
 
 
+import AnimalTemplates.Primate;
+
 /**
  * Write a description of class Animals.Orangutan here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Orangutan
-{
+public class Orangutan extends Primate {
     // instance variables - replace the example below with your own
     private int x;
 
-    /**
-     * Constructor for objects of class Animals.Orangutan
-     */
-    public Orangutan()
-    {
-        
+    public Orangutan() {
+        super("Orangutan", "orange and kinda friendly and intelligent");
+    }
+    public Orangutan(String name, String desc) {
+        super(name, desc);
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * 
-     */
-
-    
-    
+    public String eat() {
+        return "oranges and mangos";
+    }
+    public String makeNoise() {
+        return "communicates with sign language";
+    }
 }

@@ -1,10 +1,10 @@
  
 
-import AnimalTemplates.Animal;
-import AnimalTemplates.Flying;
-import AnimalTemplates.Walking;
-import Animals.Chimpanzee;
-import AnimalTemplates.Primate;
+import AnimalTemplates.*;
+import Animals.*;
+import Shops.Concessions;
+import Shops.GiftShop;
+import Shops.Wallet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,9 +56,15 @@ public class Zoo
                 case "listen" :
                     msg = listen(animals);
                     break;
-//                case "look down":
-//                msg = lookDown(animals);
-//                break;
+                case "look down":
+                    msg = lookDown(animals);
+                    break;
+                case "gifts":
+                    msg = GiftShop.checkout(in);
+                    break;
+                case "food":
+                    msg = Concessions.checkout(in);
+                    break;
                 default : msg = "You flail helplessly with indecision.";
             }
             System.out.println("\n" + msg);
@@ -71,7 +77,7 @@ public class Zoo
 
     }
 
-    public static String visitCages(List<Animal> animals)
+    private static String visitCages(List<Animal> animals)
     {
         String msg = "";
         for(Animal a : animals)
@@ -81,7 +87,7 @@ public class Zoo
         return msg;
     }
 
-    public static String listen(List<Animal> animals)
+    private static String listen(List<Animal> animals)
     {
         String msg = "";
         for(Animal a : animals)
@@ -92,25 +98,24 @@ public class Zoo
         return msg;
     }
 
-//    public static String lookDown(List<AnimalTemplates.Animal> animals)
-//    {
-//        String msg = "";
-//
-//        for(AnimalTemplates.Animal a : animals)
-//        {
-//            if(a instanceof Swimming)
-//            {
-//                Swimming f = (Swimming) a;
-//                msg += a.getName() + ": \n       "
-//                + f.swim() + "\n";
-//            }
-//        }
-//        return msg;
-//
-//    }
-
-    public static String lookAround(List<Animal> animals)
+    private static String lookDown(List<AnimalTemplates.Animal> animals)
     {
+        String msg = "";
+
+        for(AnimalTemplates.Animal a : animals)
+        {
+            if(a instanceof Swimming)
+            {
+                Swimming f = (Swimming) a;
+                msg += a.getName() + ": \n       "
+                + f.swim() + "\n";
+            }
+        }
+        return msg;
+
+    }
+
+    private static String lookAround(List<Animal> animals) {
         String msg = "";
 
         for(Animal a : animals)
@@ -144,7 +149,7 @@ public class Zoo
      * This prints an ellipses with 1 second between each period
      * It then moves to the next line.
      */
-    public static void delayDots(int dotAmount) throws InterruptedException 
+    private static void delayDots(int dotAmount) throws InterruptedException
     {
         for (int i=0; i<dotAmount; i++) {
             TimeUnit.SECONDS.sleep(1);
@@ -157,7 +162,7 @@ public class Zoo
      * This prints an ellipses with 1 second between each period
      * It then moves to the next line.
      */
-    public static void delayDots() throws InterruptedException 
+    private static void delayDots() throws InterruptedException
     {
         delayDots(0);
     }
@@ -167,13 +172,23 @@ public class Zoo
      * Construct your animal and add it to the List
      * @param animals the list containing all the zoo animals
      */
-    public static void populateAnimals(List<Animal> animals)
+    private static void populateAnimals(List<Animal> animals)
     {
 
         Primate hairy = new Primate();
         animals.add(hairy);
         Chimpanzee george = new Chimpanzee();
         animals.add(george);
+        Alligator ally = new Alligator();
+        animals.add(ally);
+        Orangutan bobo = new Orangutan();
+        animals.add(bobo);
+        Parrot larry = new Parrot();
+        animals.add(larry);
+        Ring_Tailed_Lemurs seamer = new Ring_Tailed_Lemurs();
+        animals.add(seamer);
+        Zebra zeze = new Zebra();
+        animals.add(zeze);
 
     }
 }

@@ -1,21 +1,8 @@
 package AnimalTemplates;
 
-public class Flying extends Animal {
-    public Flying(String name, String desc) {
-        super(name, desc);
-    }
+public interface Flying {
+    int MAX_FLY_DISTANCE = 500;
+    int MIN_FLY_DISTANCE = 0;
 
-    public String fly() {
-        return "Fly";
-    }
-
-    @Override
-    public String eat() {
-        return "Seeds and Nuts";
-    }
-
-    @Override
-    public String makeNoise() {
-        return "Caw";
-    }
+    String fly();
 }
